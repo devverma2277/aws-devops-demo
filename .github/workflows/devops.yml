@@ -1,0 +1,30 @@
+name: DevOps CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Build Project
+        run: echo "Building DevOps project..."
+
+      - name: Test Project
+        run: test -f index.html
+
+      - name: Verify HTML Content
+        run: grep -q "Welcome to DevOps!" index.html
+
+      - name: Deployment Simulation
+        run: echo "Deployment completed successfully!"
+
+      - name: Finish
+        run: echo "CI/CD Pipeline executed successfully!"
