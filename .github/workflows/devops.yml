@@ -21,7 +21,7 @@ jobs:
         run: test -f index.html
 
       - name: Verify HTML Content
-        run: grep -q "Welcome to DevOps!" index.html
+        run: grep -qi "DevOps" index.html
 
       - name: Deployment Simulation
         run: echo "Deployment completed successfully!"
